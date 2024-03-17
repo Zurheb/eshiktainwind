@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            important: true,
+            theme: {
+                extend: {
+                    colors: {
+                        'blue1': '#2B6CB0',
+                        'medium-blue1': '#215387',
+                        'dark-blue': '#062a4d',
+                        'dark-blue1': '#212353',
+                        'dark-blue2': '#4A5568',
+                        'light-gray': '#f2f0f0',
+                        'dark-white': '#f5f5f5',
+                        'light-white': '#F7FAFC',
+                    },
+                    backgroundImage: {
+                        'hero': "url('./images/a01dxizyn5ije3kzn69r8yarjrzloxz5_c19p-sh_mnh4-dm.jpg')",
+                    },
+                    boxShadow: {
+                        '3xl': '1px 1px 20px 7px #E0E0E0',
+                    }
+                },
+                fontFamily: {
+                    'sans1': ['Helvetica'],
+                    'arial': ['Arial'],
+                    'mono': ['ui-monospace', 'SFMono-Regular',],
+                    'display': ['Oswald',],
+                    'body': ['"Open Sans"',],
+                },
+                container: {
+                    center: true,
+                    padding: {
+                        DEFAULT: '3rem',
+                        sm: '0.3rem',
+                        lg: '3rem',
+                        xl: '3rem',
+                        '2xl': '0.3rem',
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+
+<body class=" dark:bg-[#1C1C1C]">
+    <header>
+        <div
+            class="z-10 w-full h-[80px] flex justify-between items-center fixed bg-white dark:bg-[#1C1C1C] p-4 lg:px-12">
+            <img class="w-[100px] h-[50px] relative hover:scale-[1.1]" src="eshik.png" alt="">
+            <div
+                class="flex gap-[20px] justify-center relative items-center lg:gap-[60px] lg:items-stretch lg:flex-row lg:w-auto">
+                <!-- Responsive Menu Button (hidden on larger screens) -->
+                <button id="toggleButton"
+                    class="lg:hidden text-black dark:text-white focus:outline-none hover:text-blue-400">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+
+                <!-- Navbar Links (hidden on smaller screens) -->
+                <div
+                    class="hidden lg:flex flex-col lg:flex-row lg:items-center lg:space-x-4 lg:ml-auto lg:w-auto">
+                    <a href="#main"
+                        class="text-black text-[20px] hover:border-b-[3px_solid_blue] hover:scale-110 hover:underline-offset-8 hover:underline hover:text-blue-400 duration-300 no-underline dark:text-white">ГЛАВНАЯ</a>
+                    <a href="#product"
+                        class="text-black text-[20px] hover:border-b-[3px_solid_blue] hover:scale-110 hover:underline-offset-8 hover:underline hover:text-blue-400 duration-300 no-underline dark:text-white">ПРОДУКТЫ</a>
+                    <a href="#contact"
+                        class="text-black text-[20px] hover:border-b-[3px_solid_blue] hover:scale-110 hover:underline-offset-8 hover:underline hover:text-blue-400 duration-300 no-underline dark:text-white">КОНТАКТЫ</a>
+                </div>
+
+                <!-- Button for Larger Screens -->
+                <button
+                    class="w-[230px] h-[50px] rounded-[30px] bg-white border-[1px] justify-center items-center relative hover:bg-[whitesmoke] hover:text-blue-400 hover:shadow-2xl duration-300 hidden lg:inline-block dark:bg-[#1C1C1C] dark:text-white">
+                    <a href="tel:+998900363360">+998 90 036 33 60</a>
+                </button>
+
+                <!-- Toggle Theme Button -->
+                <button id="theme-toggle" type="button"
+                    class="border-none text-gray-500 bg-white dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="w-[5] h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <section class="  relative" id="main">
+        <img class="w-full h-[650px] object-contain max-sm:h-[400px] container-none" src="cover.jpeg" alt="">
+        <button
+            class="absolute top-[80%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[150px] h-[55px] bg-[#062a4d] border-none  flex justify-center items-center hover:bg-[white] max-sm:top-[70%] max-sm:w-[100px] max-sm:h-[40px] max-[768px]:top-[70%] max-[320px]:top-[65%]"><a
+                class="no-underline text-[white] text-[20px] font-normal flex items-center  hover:text-[#062a4d] max-sm:text-[15px] "
+                href="tel:+998900363360">СВЯЗЬ <img class="w-[20px] h-[20px] ml-[5px] "
+                    src="download-removebg-preview.png" alt=""></a></button>
+    </section>
+    <section id="product">
+        <h1 class="text-[30px] text-center mt-[90px]  dark:text-white ">Наши продукты</h1>
+        <div class="w-full h-auto  flex justify-around items-center gap-5 max-[1024px]:flex-col ">
+            <div class="">
+                <img class="w-[300px] h-[400px]" src="oyna.png" alt="">
+                <div
+                    class="w-[300px] h-[60px] bg-[gainsboro] flex justify-center items-center text-center text-[20px] dark:bg-[#3B3C36] dark:text-white ">
+                    <h3>PVH или Алюминиевые двери, окна</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img class="w-[300px] h-[400px]" src="chno.png" alt="">
+                <div
+                    class="w-[300px] h-[60px] bg-[gainsboro] flex justify-center items-center text-center text-[20px] dark:bg-[#3B3C36] dark:text-white">
+                    <h3>Плотные стеклянные перегородки</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img class="w-[300px] h-[400px]" src="podoc.png" alt="">
+                <div
+                    class="w-[300px] h-[60px] bg-[gainsboro] flex justify-center items-center text-center text-[20px] dark:bg-[#3B3C36] dark:text-white">
+                    <h3>Подоконники</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img class="w-[300px] h-[400px]" src="setri.png" alt="">
+                <div
+                    class="w-[300px] h-[60px] bg-[gainsboro] flex justify-center items-center text-center text-[20px] dark:bg-[#3B3C36] dark:text-white">
+                    <h3>Москитные сетки </h3>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="w-full bg-[gainsboro] flex justify-around items-center mt-[100px] dark:bg-[#3B3C36] max-[768px]:flex-col gap-10">
+            <div class="max-w-[570px]  text-[rgb(1,_1,_125)]  gap-5 max-[768px]:text-center  ">
+                <h2 class="flex text-[35px] font-[bolder] dark:text-white  max-[768px]:justify-center  ">О нас</h2>
+                <p class="pt-[20p] text-[20px] font-light dark:text-white max-[1024px]:text-[18px] ">Частное предприятие
+                    «РУСТАМ ПРОФИЛЬ» создано
+                    в 2017 году.
+                    это профессиональный стиль, который сегодня необходим в строительной отрасли,
+                    <br>
+                    вместе с производством профилей для гипсокартона
+                    изготовление и установка алюминиевых или пластиковых дверей и окон
+                    <br>
+                    также делает это. Услуги имеют большой опыт
+                    <br>
+                    выполняются специалистами. Качество нашей продукции
+                    для известных в нашей стране AKFA, IMZO и ENGELBERG
+                    Мы используем профили таких брендов, как
+                </p>
+            </div>
+            <div class="">
+                <img class="w-auto max-[1024px]:w-[180px]" src="eshik.png" alt="">
+            </div>
+        </div>
+
+        <div class="w-full  flex flex-col items-center justify-center bg-[white] text-center dark:bg-[#1C1C1C]">
+            <h1 class="text-[30px] text-center my-auto dark:text-white">Почему вы должны выбрать нас?</h1>
+            <div class="flex justify-center items-center flex-wrap mt-[30px] gap-[40px]  max-[1024px]:flex-col">
+                <div
+                    class="w-[300px] h-[250px] text-center p-[20px] bg-[#f0f0f0] rounded-[10px] [box-shadow:0_4px_8px_rgba(0,_0,_0,_0.1)] dark:bg-[#3B3c36] ">
+                    <img class="w-[100px] h-[100px] m-auto rounded-[50%] " src="people.png" alt="">
+                    <h2 class="mx-[auto] my-[10px] dark:text-white">Опыт</h2>
+                    <p class="max-w-[200px] mx-[auto] my-[0] font-extralight text-[15px] dark:text-white">Услуги имеют
+                        большой опыт в исполнении специалистов</p>
+                </div>
+                <div
+                    class="w-[300px] h-[250px] text-center p-[20px] bg-[#f0f0f0] rounded-[10px] [box-shadow:0_4px_8px_rgba(0,_0,_0,_0.1)] dark:bg-[#3B3c36]">
+                    <img class="w-[100px] h-[100px] m-auto rounded-[50%]" src="masenge.png" alt="">
+                    <h2 class="mx-[auto] my-[10px] dark:text-white">Индивидуальный подход</h2>
+                    <p class="max-w-[200px] mx-[auto] my-[0] font-extralight text-[15px] dark:text-white">Каждый клиент
+                        индивидуален подход</p>
+                </div>
+                <div
+                    class="w-[300px] h-[250px] text-center p-[20px] bg-[#f0f0f0] rounded-[10px] [box-shadow:0_4px_8px_rgba(0,_0,_0,_0.1)] dark:bg-[#3B3C36]">
+                    <img class="w-[100px] h-[100px] m-auto rounded-[50%]" src="speed.png" alt="">
+                    <h2 class="mx-[auto] my-[10px] dark:text-white">Скорость</h2>
+                    <p class="max-w-[200px] mx-[auto] my-[0] font-extralight text-[15px] dark:text-white">Не позднее
+                        согласованных сроков дела будут завершены</p>
+                </div>
+                <div
+                    class="w-[300px] h-[250px] text-center p-[20px] bg-[#f0f0f0] rounded-[10px] [box-shadow:0_4px_8px_rgba(0,_0,_0,_0.1)] dark:bg-[#3B3c36]">
+                    <img class="w-[100px] h-[100px] m-auto rounded-[50%]" src="control.png" alt="">
+                    <h2 class="mx-[auto] my-[10px] dark:text-white">Контроль</h2>
+                    <p class="max-w-[200px] mx-[auto] my-[0] font-extralight text-[15px] dark:text-white">Качественная
+                        реализация от проекта до установки увеличение контролируется и обеспечивается</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center p-[20px] ">
+            <div
+                class="w-full  h-auto min-h-[600px]  flex justify-evenly  items-center bg-[gainsboro] rounded-[15px] overflow-hidden dark:bg-[#3B3C36] flex-col lg:flex-row lg:">
+                <div class=" h-auto p-[20px] flex gap-[60px]  justify-center items-center max-[425px]: ">
+                    <p class="font-bold text-[20px] text-center dark:text-white  lg:h-[100px]">
+                        В нашей компании есть двери различных размеров
+                        <br>
+                        и окна производятся. От него
+                        <br>
+                        кроме нынешних современных офисов
+                        <br>
+                        толстое стекло вместо стен в комнатах
+                        <br>
+                        Также доступны услуги по изготовлению и установке.
+                        <button
+                            class=" w-[150px] h-[55px] bg-[#062a4d] border-none  flex justify-center m-auto mt-[50px] items-center hover:bg-[white] max-sm:top-[70%] max-sm:w-[100px] max-sm:h-[40px] max-[768px]:top-[70%] max-[320px]:top-[65%]"><a
+                                class="no-underline text-[white] text-[20px] font-normal flex items-center  hover:text-[#062a4d] max-sm:text-[15px] "
+                                href="tel:+998900363360">СВЯЗЬ <img class="w-[20px] h-[20px] ml-[5px] "
+                                    src="download-removebg-preview.png" alt=""></a></button>
+                    </p>
+
+                </div>
+                <img class="w-1/2 max-w-[550px] h-[400px] rounded-[15px] max-[1024px]:w-[95%] max-[1024px]:h-[300px] "
+                    src="oyna.png" alt="">
+            </div>
+        </div>
+        <div class="text-center p-[20px] ">
+
+            <div
+                class="w-full h-[600px]  flex justify-evenly items-center bg-[gainsboro] rounded-[15px] overflow-hidden dark:bg-[#3B3C36] flex-col lg:flex-row lg:">
+                <img class="w-1/2 max-w-[550px] h-[400px] rounded-[15px]  max-[1024px]:w-[95%] max-[1024px]:h-[300px]"
+                    src="joj.jpeg" alt="">
+                <div class=" p-[20px] flex gap-[60px]  justify-center items-center">
+                    <p class="font-bold text-[20px]  text-center dark:text-white">
+                        Наша компания несет ответственность
+                        <br>
+                        задачи быстро и вовремя
+                        <br>
+                        качественное исполнение, лучшее качество для оправ
+                        <br>
+                        использование сырья и клиентов
+                        <br>
+                        с выгодными условиями
+                        <br>
+                        выделяется.
+                        <button
+                            class="w-[150px] h-[55px] bg-[#062a4d] border-none  flex justify-center m-auto mt-[50px] items-center hover:bg-[white] max-sm:top-[70%] max-sm:w-[100px] max-sm:h-[40px] max-[768px]:top-[70%] max-[320px]:top-[65%]"><a
+                                class="no-underline text-[white] text-[20px] font-normal flex items-center  hover:text-[#062a4d] max-sm:text-[15px] "
+                                href="tel:+998900363360">СВЯЗЬ <img class="w-[20px] h-[20px] ml-[5px] "
+                                    src="download-removebg-preview.png" alt=""></a></button>
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="w-full h-auto flex justify-center items-center " id="contoct">
+        <div class="flex gap-[200px] max-[1024px]:flex-col">
+            <div class="w-[300px] flex flex-col items-center gap-[10px]">
+                <img class="w-[100px] h-[100px]" src="email.png" alt="">
+                <h3 class="text-[25px] dark:text-white">Электронная почта</h3>
+                <p class="text-center text-[18px] dark:text-white">Отправьте все ваши вопросы на наш адрес электронной
+                    почты ты можешь отправить</p>
+                <a class=" hover:text-blue-500 dark:text-white"
+                    href="mailto:juraev.shuhrat1988@gmail.com">juraev.shuhrat1988@gmail.com</a>
+            </div>
+            <div class="w-[300px] flex flex-col items-center gap-[10px]">
+                <img class="w-[100px] h-[100px]" src="telefon.webp" alt="">
+                <h3 class="text-[25px] dark:text-white">Телефон</h3>
+                <p class="text-center text-[18px] dark:text-white">Для заказа звоните по нашим номерам ниже возможный
+                </p>
+                <a class=" hover:text-blue-500 dark:text-white" href="tel:+998900363360">+998 90 036 33 60</a>
+                <a class=" hover:text-blue-500 dark:text-white" href="tel:+998900363360">+998 90 036 33 60</a>
+            </div>
+            <div class="w-[300px] flex flex-col items-center gap-[10px]">
+                <img class="w-[100px] h-[100px]" src="adres-removebg-preview.png" alt="">
+                <h3 class="text-[25px] dark:text-white">Наш адрес</h3>
+                <p class="text-center text-[18px]  dark:text-white ">В наш адрес с 09:00 до 19:00 вы можете посетить</p>
+                <a href="">
+                    <p class=" text-center hover:text-blue-500 dark:text-white">г. Ташкент, Мирзо-Улугбекский район,
+                        <br>
+                        Алишерабадский МФУ, улица Нурлы замина, 83-А
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div style="position:relative;overflow:hidden; margin-top: 50px;"><a
+            href="https://yandex.uz/maps/10335/tashkent/?utm_medium=mapframe&utm_source=maps"
+            style="color:#eee;font-size:12px;position:absolute;top:0px;">Ташкент</a><a
+            href="https://yandex.uz/maps/10335/tashkent/?ll=69.279737%2C41.311151&utm_medium=mapframe&utm_source=maps&z=12"
+            style="color:#eee;font-size:12px;position:absolute;top:14px; ">Ташкент — Яндекс Карты</a><iframe
+            src="https://yandex.uz/map-widget/v1/?ll=69.279737%2C41.311151&z=12" width="100%" height="400"
+            frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+
+    <footer class="w-full h-[450px] flex justify-center dark:bg-[#3B3C36]  ">
+        <div class="flex justify-center items-center gap-[100px] max-[768px]:flex-col">
+            <img class="w-[150px] h-[100px] hover:scale-[1.1]" src="eshik.png" alt="">
+            <a href="">
+                <p
+                    class="text-[18px] text-center no-underline hover:text-blue-500 dark:text-white dark:hover:text-blue-500">
+                    г. Ташкент, Мирзо-Улугбекский район,
+                    <br>
+                    Алишерабадский МФУ, улица Нурлы замина, 83-А
+                </p>
+            </a>
+            <div class="flex flex-col">
+                <a class="no-underline mt-[10px] text-[18px] hover:text-blue-500 dark:text-white dark:hover:text-blue-500"
+                    href="tel:+998900363360">+998 90 036 33 60</a>
+                <a class="no-underline mt-[10px] text-[18px] hover:text-blue-500 dark:text-white dark:hover:text-blue-500"
+                    href="tel:+998900363360">+998 90 036 33 60</a>
+            </div>
+        </div>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+
+</html>
